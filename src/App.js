@@ -5,7 +5,7 @@ import User from './components/user.components';
 function App() {
   return (
     <>
-    <User/>
+      <User/>
     </>
   );
 }

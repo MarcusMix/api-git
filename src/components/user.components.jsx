@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { DivContainer } from './users.styles';
 
-// import api from '../services/api';
-import axios from 'axios';
+// Styles
+import { DivContainer, InputSearch } from './user.styles';
+
+// API git
+import api from '../services/api';
+
 
 function User() {
 
@@ -10,7 +13,7 @@ function User() {
 
     const fetchUser = async () => {
         try {
-            const { data } = await axios.get("https://api.github.com/users/marcusmix")
+            const { data } = await api.get("https://api.github.com/users/marcusmix")
             setUser(data)
         } catch (error) {
             console.log(error)
@@ -23,9 +26,10 @@ function User() {
 
     return (
         <DivContainer>
-            <h1>Usuário: {user}</h1>
-
-            <h1>Bibliografia: {user}</h1>
+      
+          <h1>Usuário: {user?.login}</h1>
+          <h1>Bibliografia: {user?.bio}</h1>
+            
         </DivContainer>
     );
 }

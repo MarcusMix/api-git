@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DivContainer = styled.div `
-    width: 400px;
-    background-color: green;
+    width: 600px;
+    background-color: #6b5b95;
+    margin: auto;
 `
