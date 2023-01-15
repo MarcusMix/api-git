@@ -13,7 +13,7 @@ function User() {
 
     const fetchUser = async () => {
         try {
-            const { data } = await api.get("https://api.github.com/users/marcusmix")
+            const { data } = await api.get("/users/marcusmix")
             setUser(data)
         } catch (error) {
             console.log(error)
