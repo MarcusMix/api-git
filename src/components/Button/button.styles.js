@@ -5,8 +5,9 @@ export const CustomButton = styled.button `
   text-align: center;
   cursor: pointer;
   color: #fff;
+  margin: 10px;
   background-color: ${(props) => props.theme.colors.sucess};
   :hover {
-    background-color: #90A19D;
+    background-color: ${(props) => props.theme.colors.blue};
   }
 `
