@@ -13,6 +13,7 @@ import UserPage from './pages/Users/User';
 import ErrorPage from './pages/Error/Error';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from './theme';
+import AllProductsPage from './pages/AllProducts/AllProducts';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,7 @@ root.render(
           <Route path='/products' element={<PageProducts/>}/>
           <Route path='/user' element={<UserPage/>}/>
           <Route path='*' element={<ErrorPage/>}/>
+          <Route path='/allproducts' element={<AllProductsPage/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
