@@ -7,14 +7,21 @@ const Home = () => {
 
   const navigate = useNavigate()
 
-  const handleButtonClick = () => {
+  const handleButtonClickProducts = () => {
     navigate('/products')
+  }
+
+  const handleButtonClickAllProducts = () => {
+    navigate('/allproducts')
   }
 
   return (
     <DivContainer>
       <Title>Bem Vindo</Title>
-      <Button onClick={handleButtonClick}>Acessar a loja</Button>
+      <div>
+        <Button onClick={handleButtonClickProducts}>Visualizar um produto</Button>
+        <Button onClick={handleButtonClickAllProducts}>Acessar todos os produtos</Button>
+      </div>
     </DivContainer>
   )
 }
