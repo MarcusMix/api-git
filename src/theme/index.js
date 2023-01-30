@@ -1,6 +1,6 @@
 export const defaultTheme = () => ({
   colors: {
-    primary: "",
+    primary: "#fff",
     secondary: "",
     lightGrey: "##90A19D",
     blue: "#196774",
