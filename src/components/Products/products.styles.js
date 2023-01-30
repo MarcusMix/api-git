@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DivContainer = styled.div `
-    margin: auto;
+    margin: auto 20px;
     display: flex;
     align-items: center;
     margin-top: 80px;
@@ -12,7 +12,7 @@ export const DivContainer = styled.div `
 
   export const Title = styled.h1 `
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     /* margin-top: 80px; */
     /* margin: auto; */
   `
@@ -27,8 +27,9 @@ export const DivContainer = styled.div `
     text-align: center;
     /* color: yellow; */
     margin: 0 0 20px;
-    font-size: 2rem;
+    font-size: 20px;
     border-bottom: 3px double yellow;
+    padding: 10px;
   `
 
 
@@ -47,4 +48,5 @@ export const DivContainer = styled.div `
     margin: 0 auto;
     display: block;
     object-fit: contain;
+    padding: 10px;
   `
