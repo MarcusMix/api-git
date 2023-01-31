@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DivContainer } from "../Products/products.styles";
 
 export const ContainerCard = styled.div `
-background-color: ${(props) => props.theme.background.primary};
+      background-color: ${(props) => props.theme.background.primary};
       display: flex;
       justify-content: center;
       align-items: center;
