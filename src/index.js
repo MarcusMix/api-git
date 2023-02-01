@@ -6,29 +6,37 @@ import reportWebVitals from './reportWebVitals';
 //router
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+//styles
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from './theme';
+
 //pages
 import Home from './pages/Home/Home';
 import PageProducts from './pages/Products/Products';
 import UserPage from './pages/Users/User';
 import ErrorPage from './pages/Error/Error';
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from './theme';
 import AllProductsPage from './pages/AllProducts/AllProducts';
+import ProductPage from './pages/Product/ProductPage';
 
+//context
+import ProductProvider from './store/product';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme()}>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/products' element={<PageProducts/>}/>
-          <Route path='/user' element={<UserPage/>}/>
-          <Route path='*' element={<ErrorPage/>}/>
-          <Route path='/allproducts' element={<AllProductsPage/>}/>
-        </Routes>
-      </BrowserRouter>
+      <ProductProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/products' element={<PageProducts/>}/>
+            <Route path='/user' element={<UserPage/>}/>
+            <Route path='*' element={<ErrorPage/>}/>
+            <Route path='/allproducts' element={<AllProductsPage/>}/>
+            <Route path='/product/:id' element={<ProductPage/>}/>
+          </Routes>
+        </BrowserRouter>
+      </ProductProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
