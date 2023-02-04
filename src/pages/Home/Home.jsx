@@ -1,7 +1,15 @@
-import { DivContainer, Title } from "../../components/Products/products.styles"
+//react
 import React from "react"
+
+//styles
+import { HomeStyled } from './home.styles'
+
+//router
 import { useNavigate } from "react-router-dom"
+
+//components
 import Button from "../../components/Button/button.component"
+import Navbar from "../../components/Navbar/navbar.component"
 
 const Home = () => {
 
@@ -15,14 +23,15 @@ const Home = () => {
     navigate('/allproducts')
   }
 
+
   return (
-    <DivContainer>
-      <Title>Bem Vindo</Title>
-      <div>
+    <>
+    <Navbar/>
+      <HomeStyled>
         <Button onClick={handleButtonClickProducts}>Visualizar um produto</Button>
-        <Button onClick={handleButtonClickAllProducts}>Acessar todos os produtos</Button>
-      </div>
-    </DivContainer>
+        <Button onClick={handleButtonClickAllProducts}>Acessar todos os produtos</Button>  
+      </HomeStyled>
+    </>
   )
 }
 
