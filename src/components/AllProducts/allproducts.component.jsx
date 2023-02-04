@@ -1,9 +1,9 @@
-//http
-import axios from "axios"
+//icons
+import { RiArrowGoBackFill } from 'react-icons/ri'
 
 //hooks
 import { useNavigate } from "react-router-dom"
-import { useMemo, useState, useEffect } from "react"
+import { useMemo, useState } from "react"
 
 //styles
 import { ContainerCard, ImageProduct, ProductsCard, ContainerProduct } from "./allproducts.styles"
@@ -31,9 +31,6 @@ const AllProducts = ({productId}) => {
     console.log(products)
     // console.log(product.title)
 
-    
-    
-
     //filtrar produtos
     const productFiltered = useMemo(() => {
         const lowerBusca = busca.toLowerCase()
@@ -60,12 +57,11 @@ const AllProducts = ({productId}) => {
 
     return (
         <>
-            {loading ? <Loading type='spin' color="black" /> : (
+            {loading ? <Loading color="black" /> : (
                 <div>
-                    <Button onClick={handlePageProduct}>produto</Button>
                     <ContainerProduct>
-                        <Button onClick={handleButtonBackHome}>Voltar para Home</Button>
                         <CustomInput onChange={handleSearchInput} value={busca} placeholder="Pesquisar produto..." type="text"/>
+                        <Button onClick={handleButtonBackHome}> <RiArrowGoBackFill/> Voltar</Button>
                     </ContainerProduct>
 
                     <ContainerCard onClick={handlePageProduct}>
