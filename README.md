@@ -1,6 +1,6 @@
 # Fake API Store 
 
-# link preview: https://fake-store-api-three.vercel.app   
+# preview link: https://fake-store-api-marcusmix.vercel.app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
