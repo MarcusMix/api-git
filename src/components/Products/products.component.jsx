@@ -6,11 +6,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //styles
-import { DivContainer, H2, Product, Title, Select, Image } from "./products.styles"
+import { DivContainer, H2, Product, Title, Select, Image, DivContainerTop } from "./products.styles"
 
 //component
 import Loading from '../Loading/loading'
 import Button from '../Button/button.component';
+
+import { RiArrowGoBackFill } from 'react-icons/ri'
 
 const Products = () => {
 
@@ -42,9 +44,12 @@ const Products = () => {
 
   return (
     <div>
-    {loading ? <Loading type='spin' color="black"/> : (
+    {loading ? <Loading color="black"/> : (
       <>
-      <Title>Shopping do Marcus</Title>
+      <DivContainerTop>
+      <Title>Produtos</Title>
+        <Button onClick={handleButtonBackHome}><RiArrowGoBackFill/> Voltar</Button>
+      </DivContainerTop>
   
       <DivContainer>
      
@@ -74,9 +79,6 @@ const Products = () => {
           <Image src={product.image} />
           <p>{product.description}</p>
         </Product>
-      </DivContainer>
-      <DivContainer>
-        <Button onClick={handleButtonBackHome}>Voltar para tela inicial</Button>
       </DivContainer>
       </>
       )}

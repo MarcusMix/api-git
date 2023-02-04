@@ -2,16 +2,20 @@
 import axios from "axios";
 
 //context
-import { useEffect, useState, useContext } from "react"
-import React from 'react'
 import { ProductContext } from '../../store/product'
+
+//hooks
+import { useEffect, useState, useContext } from "react"
+
+//react
+import React from 'react'
 
 const productId = 7;
 
 const ProductDetails = ({ productId }) => {
     
     //context
-    // const {isLoading} = useContext(ProductContext)
+    const {isLoading} = useContext(ProductContext)
 
     //state
     const [product, setProduct] = useState()
@@ -19,14 +23,13 @@ const ProductDetails = ({ productId }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                // isLoading(true)
+                isLoading(true)
                 const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
-
-                 setProduct(response.data);
+                setProduct(response.data);
             } catch (error) {
                 console.log(error)
             } finally {
-                // isLoading(false)
+                isLoading(false)
             }
         }
 
@@ -36,7 +39,7 @@ const ProductDetails = ({ productId }) => {
     console.log(product)
 
     return (
-        <div> oi tudo bem 
+        <div> página em desenvolvimento...
             {/* <h1>{product.title}</h1> */}
         </div>
     )

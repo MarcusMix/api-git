@@ -10,6 +10,10 @@ export const DivContainer = styled.div `
     justify-content: space-around;
 `
 
+export const DivContainerTop = styled(DivContainer)`
+  margin: auto;
+`
+
   export const Title = styled.h1 `
     text-align: center;
     font-size: 20px;
