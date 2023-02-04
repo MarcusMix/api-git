@@ -1,14 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 //router
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-//styles
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from './theme';
 
 //pages
 import Home from './pages/Home/Home';
@@ -17,26 +12,34 @@ import UserPage from './pages/Users/User';
 import ErrorPage from './pages/Error/Error';
 import AllProductsPage from './pages/AllProducts/AllProducts';
 import ProductPage from './pages/Product/ProductPage';
+import Login from './pages/Login/login.page';
 
 //context
 import ProductProvider from './store/product';
+
+//theme
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from './theme';
+import { GlobalStyle } from './theme/GlobalStyle';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme()}>
-      <ProductProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/products' element={<PageProducts/>}/>
-            <Route path='/user' element={<UserPage/>}/>
-            <Route path='*' element={<ErrorPage/>}/>
-            <Route path='/allproducts' element={<AllProductsPage/>}/>
-            <Route path='/product/:id' element={<ProductPage/>}/>
-          </Routes>
-        </BrowserRouter>
-      </ProductProvider>
+      <GlobalStyle/>
+        <ProductProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/products' element={<PageProducts/>}/>
+              <Route path='/user' element={<UserPage/>}/>
+              <Route path='*' element={<ErrorPage/>}/>
+              <Route path='/allproducts' element={<AllProductsPage/>}/>
+              <Route path='/product/:id' element={<ProductPage/>}/>
+              <Route path='/login' element={<Login/>}/>
+            </Routes>
+          </BrowserRouter>
+        </ProductProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
