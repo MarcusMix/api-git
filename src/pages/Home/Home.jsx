@@ -23,7 +23,6 @@ const Home = () => {
     navigate('/allproducts')
   }
 
-
   return (
     <>
     <Navbar/>
