@@ -35,7 +35,7 @@ root.render(
               <Route path='/user' element={<UserPage/>}/>
               <Route path='*' element={<ErrorPage/>}/>
               <Route path='/allproducts' element={<AllProductsPage/>}/>
-              <Route path='/product/:id' element={<ProductPage/>}/>
+              <Route path='/products/:id' element={<ProductPage/>}/>
               <Route path='/login' element={<Login/>}/>
             </Routes>
           </BrowserRouter>

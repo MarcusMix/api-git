@@ -17,9 +17,15 @@ import CustomInput from "../Input/input.component"
 import { ProductContext } from '../../store/product'
 import { useContext } from "react"
 
+//router
+import { useParams, Link } from 'react-router-dom'
 
 
-const AllProducts = ({productId}) => {
+
+const AllProducts = () => {
+
+    let params = useParams()
+    console.log(params.id)
 
     //context
     const {products, loading} = useContext(ProductContext)
@@ -29,7 +35,6 @@ const AllProducts = ({productId}) => {
   
 
     console.log(products)
-    // console.log(product.title)
 
     //filtrar produtos
     const productFiltered = useMemo(() => {
@@ -47,10 +52,6 @@ const AllProducts = ({productId}) => {
         navigate('/')
     }
 
-    const handlePageProduct  = () => {
-        navigate(`/product/${products.id}`)
-    }
-
     const handleSearchInput = (e) => {
         setBusca(e.target.value)
     }
@@ -64,14 +65,16 @@ const AllProducts = ({productId}) => {
                         <Button onClick={handleButtonBackHome}> <RiArrowGoBackFill/> Voltar</Button>
                     </ContainerProduct>
 
-                    <ContainerCard onClick={handlePageProduct}>
-                    {productFiltered.map((product, key) => (
-                            <ProductsCard key={key}>
-                                <h3>{product.title}</h3>
-                                <ImageProduct src={product.image}/>
-                                <p>Preço: R${product.price}</p>
-                            </ProductsCard>
-                    ))}
+                    <ContainerCard>
+                            {productFiltered.map((product, key) => (
+                                <ProductsCard key={key}>
+                                    <Link to={'/products/' + product.id}>
+                                        <h3>{product.title}</h3>
+                                        <ImageProduct src={product.image}/>
+                                        <p>Preço: R${product.price}</p>
+                                    </Link>
+                                </ProductsCard>
+                            ))}
                     </ContainerCard>
                 </div>
             )}

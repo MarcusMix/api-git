@@ -10,37 +10,39 @@ import { useEffect, useState, useContext } from "react"
 //react
 import React from 'react'
 
-const productId = 7;
+import Loading from "../Loading/loading";
+
+import { useParams } from 'react-router-dom'
 
 const ProductDetails = ({ productId }) => {
+
+    let params = useParams()
     
     //context
     const {isLoading} = useContext(ProductContext)
 
     //state
-    const [product, setProduct] = useState()
+    const [productDetails, setProductDetails] = useState()
     
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                isLoading(true)
-                const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
-                setProduct(response.data);
-            } catch (error) {
-                console.log(error)
-            } finally {
-                isLoading(false)
-            }
+    const fetchProduct = async () => {
+        try {
+            isLoading(true)
+            const response = await axios.get(`https://fakestoreapi.com/products/${params.id}`)
+            setProductDetails(response.data);
+        } catch (error) {
+            console.log(error)
+        } finally {
+            isLoading(false)
         }
-
+    }
+    useEffect(() => {
         fetchProduct()
-    }, [])
+    }, [params.id])
 
-    console.log(product)
+    console.log(productDetails)
 
     return (
         <div> página em desenvolvimento...
-            {/* <h1>{product.title}</h1> */}
         </div>
     )
 }
